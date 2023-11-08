@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:shopping_list/screens/shoplist_form.dart';
 import '../models.dart';
 
 class ShopCard extends StatelessWidget {
@@ -19,7 +19,14 @@ class ShopCard extends StatelessWidget {
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
-        },
+          if (item.name == "Tambah Produk") {
+
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ShopFormPage(),
+                ));
+          }},
         child: Container(
           // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),
